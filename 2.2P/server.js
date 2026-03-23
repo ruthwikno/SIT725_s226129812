@@ -8,8 +8,7 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, "public")));
 
-// GET endpoint to calculate the sum of a numbers
-// Example: http://http://localhost:3003/sum?num1=3&num2=4
+// GET endpoint to calculate the arithmetic operation of a numbers
 
 app.get("/calculate", (req, res) => {
     const num1 = parseFloat(req.query.num1);
