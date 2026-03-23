@@ -1,8 +1,12 @@
-# Ignore node_modules folder
+# Dependencies
 node_modules/
-
-# Ignore log files
+# Logs
 *.log
-
-# Ignore environment files
+npm-debug.log*
+# Environment (safe to include even if unused)
 .env
+.env.*.local
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
