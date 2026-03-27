@@ -1,0 +1,40 @@
+html, body {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  background-color: #F28487;
+}
+
+.navbar-size {
+  width: 95%;
+  margin: 0 auto;
+}
+
+nav .brand-logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+nav .brand-logo img {
+  display: block;
+  height: 50px;
+}
+
+.main-body {
+  background-color: #F28487;
+  color: white;
+  min-height: calc(100vh - 64px);
+  padding-bottom: 20px;
+}
+
+.materialboxed-image {
+  margin: 0 auto;
+  height: 400px;
+}
+
+.click-me-button {
+  background-color: #EE6E73;
+  margin-top: 50px;
+}
