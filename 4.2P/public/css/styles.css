@@ -1,0 +1,62 @@
+html, body {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: linear-gradient(135deg, #121D3E 0%, #243559 100%);
+  color: #f4f4f4;
+}
+
+.navbar-size {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+nav .brand-logo {
+position: relative;
+display: flex;
+align-items: center;
+height: 100%;
+}
+nav .brand-logo img {
+display: block;
+height: 50px;
+}
+.nav-link {
+  color: white !important;
+  font-weight: 600;
+  padding: 0 8px;
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: #FFFDE7 !important;
+  background: rgba(255,255,255,0.12);
+  border-radius: 4px;
+}
+.main-body {
+background: linear-gradient(180deg, rgba(34,46,89,0.90), rgba(26,36,72,0.86));
+color: #ffffff;
+height: calc(100vh - 64px);
+}
+.materialboxed-image {
+margin: 0 auto;
+height: 400px;
+object-fit: cover;
+}
+.card-image img,
+.materialboxed-image {
+  width: 40%;
+  height:160px;
+  object-fit: cover;
+}
+.click-me-button {
+background-color: #EE6E73;
+margin-top: 50px;
+}
+.card-reveal {
+color: black;
+}
+.card-reveal .card-title,
+.card-reveal p {
+color: black;
+}

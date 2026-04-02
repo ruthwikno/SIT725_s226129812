@@ -1,0 +1,32 @@
+{
+  "name": "3.2p",
+  "version": "1.0.0",
+  "description": "3.2p assignment",
+  "homepage": "https://github.com/ruthwikno/SIT725_s226129812#readme",
+  "bugs": {
+    "url": "https://github.com/ruthwikno/SIT725_s226129812/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruthwikno/SIT725_s226129812.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "Express",
+    "Materialize",
+    "HTML",
+    "JS",
+    "CSS"
+  ],
+  "license": "MIT",
+  "author": "Ruthwik Reddy",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
+
