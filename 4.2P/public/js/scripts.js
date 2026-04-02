@@ -1,5 +1,4 @@
-
-    const cardList = [
+ const cardList = [
 {
   title: "Koenigsegg Regera",
   image: "images/koenigsegg.jpg",

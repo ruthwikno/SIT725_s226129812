@@ -1,5 +1,5 @@
-# SIT725 Assignment 3.2P: Supercar Show built using Node.js, Express, and Materialize
-SIT725 assignment 3.2P built using Node.js, Express, and Materialize. It’s a simple supercar gallery where I tried to implement dynamic UI, responsive layout, and interactive components.
+# SIT725 Assignment 4.2P: Supercar Show built using Node.js, Express, and Materialize
+SIT725 assignment 4.2P built using Node.js, Express, and Materialize. It’s a simple supercar gallery where I tried to implement dynamic UI, responsive layout, and interactive components.
 
 ## Project Structure
 
