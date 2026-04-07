@@ -22,17 +22,21 @@ const submitForm = () => {
 const addCards = (items) => {
   items.forEach(item => {
     let itemToAppend = '<div class="col s4 center-align">' +
-      '<div class="card medium"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + item.image + '">' +
+      '<div class="card"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + item.image + '">' +
       '</div><div class="card-content">' +
-      '<span class="card-title activator grey-text text-darken-4">' + item.title + '<i class="material-icons right">more_vert</i></span><p><a href="#">' + item.link + '</a></p></div>' +
+      '<span class="card-title activator grey-text text-darken-4">' + item.title + '<i class="material-icons right">more_vert</i></span><p>' + item.description + '</p></div>' +
       '<div class="card-reveal">' +
       '<span class="card-title grey-text text-darken-4">' + item.title + '<i class="material-icons right">close</i></span>' +
-      '<p class="card-text">' + item.description.replace(/\n/g, '<br>') + '</p>' +
+      '<p class="card-text">' +
+      'Top Speed: ' + item.topspeed + '<br>' +
+      'Horsepower: ' + item.horsepower + '<br>' +
+      'Acceleration: ' + item.acceleration + '<br>' +
+      'Engine: ' + item.engine + '</p>' +
       '</div></div></div>';
     $("#card-section").append(itemToAppend);
+    console.log('description: ' + item.description);
   });
 };
-
 $(document).ready(function () {
   $('.materialboxed').materialbox();
   $('.modal').modal();
