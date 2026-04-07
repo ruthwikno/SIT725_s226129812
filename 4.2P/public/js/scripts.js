@@ -1,17 +1,4 @@
- const cardList = [
-{
-  title: "Koenigsegg Regera",
-  image: "images/koenigsegg.jpg",
-  link: "About Koenigsegg Regera",
-  description: "Top speed : 410 km/h\n0-100km/h : 2.8 sec\nEngine : 5.0L twin-turbo V8\nhorsepower : 1500 hp"
-},
-{
-  title: "Bugatti Chiron",
-  image: "images/Chiron.jpg",
-  link: "About Bugatti Chiron",
-  description: "Top speed : 420 km/h\n0-100km/h : 2.4 sec\nEngine : 8.0L W16 quad-turbocharged\nHorsepower : 1479 hp"
-}
-]
+
 const clickMe = () => {
 alert("Thanks for clicking me. Hope you have a nice day!")
 }
@@ -41,6 +28,13 @@ $('.materialboxed').materialbox();
 $('#formSubmit').click(()=>{
 submitForm();
 })
-addCards(cardList);
+
+fetch('/api/cars')
+  .then(response => response.json())
+  .then(result => {
+    console.log(result);
+    addCards(result.data); // IMPORTANT: use result.data
+  })
+  .catch(error => console.error('Error:', error));
 $('.modal').modal();
 });
