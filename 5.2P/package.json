@@ -1,0 +1,23 @@
+{
+  "name": "5.2p",
+  "version": "1.0.0",
+  "description": "Task on MVC",
+  "homepage": "https://github.com/ruthwikno/SIT725_s226129812#readme",
+  "bugs": {
+    "url": "https://github.com/ruthwikno/SIT725_s226129812/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruthwikno/SIT725_s226129812.git"
+  },
+  "license": "ISC",
+  "author": "Ruthwik",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
