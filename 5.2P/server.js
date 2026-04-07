@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
+//to access public folder for static files
+app.use(express.static('public'));
 
 // Import route file
-const bookRoutes = require('./routes/books');
+const bookRoutes = require('./routes/books.routes');
 
 // Mount the route at /api/books
 app.use('/api/books', bookRoutes);
