@@ -1,6 +1,6 @@
 const bookItems = [
 { 
-id: 'b1',
+id: b1,
 title: 'The Three-Body Problem',
 author: 'Liu Cixin',
 year: '2008',
@@ -18,7 +18,7 @@ summary: 'An orphaned governess confronts class, morality, and love at Thornfiel
 },
 
 {
-id: 'b3',
+id: b3,
 title: 'Pride and Prejudice',
 author: 'Jane Austen',
 year: '1813',
@@ -36,7 +36,7 @@ summary: 'In a ruined Italian villa at the end of WWII, four strangers withinter
 },
 
 {
-id: 'b5',
+id: b5,
 title: 'Small Gods',
 author: 'Terry Pratchett',
 year: '1992',
