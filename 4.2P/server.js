@@ -15,8 +15,11 @@ console.log('Connected to MongoDB');
 const CarSchema = new mongoose.Schema({
 title: String,
 image: String,
-link: String,
 description: String,
+topspeed: String,
+horsepower: String,
+acceleration: String,
+engine: String,
 });
 
 const UserSchema = new mongoose.Schema({

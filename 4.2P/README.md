@@ -1,5 +1,5 @@
-# SIT725 Assignment 4.2P: Supercar Show built using Node.js, Express, and Materialize
-SIT725 assignment 4.2P built using Node.js, Express, and Materialize. It’s a simple supercar gallery where I tried to implement dynamic UI, responsive layout, and interactive components.
+# SIT725 Assignment 4.2P: 
+SIT725 assignment 4.2P built using Node.js, Express, and MongoDB. 
 
 ## Project Structure
 
@@ -17,11 +17,12 @@ SIT725 assignment 4.2P built using Node.js, Express, and Materialize. It’s a s
 2. Run `npm start` to start express server.
 3. Open `http://localhost:3000` in browser.
 
-## Limitations:
+## MongoDB
 
-- No backend
-- Modal form just prints data to console.
-- `About this car` links are placeholders (`href="#"`).
-
-
-
+1. Install MongoDB and make sure it is running on your local machine.
+2. The app connects to `mongodb://localhost:27017/supercar` automatically on server start.
+3. There are Two collections:
+   - `cars` - stores supercar data (title, image, topspeed, horsepower, acceleration, engine)
+   - `users` - stores sign up form submissions (first_name, last_name, email, password)
+4. Add car documents manually using MongoDB Compass to the `cars` collection.
+5. User sign up data is saved automatically when the form is submitted.
