@@ -6,7 +6,8 @@ fetch('/api/books')
     response.data.forEach(book => {
       const li = document.createElement('li');
       li.innerHTML = `<div class="title">${book.title}</div>
-                      <div class="author">by ${book.author}</div>`;
+                      <div class="author">by ${book.author}</div>
+                      <span class="genre">${book.genre}</span>`;
       list.appendChild(li);
     });
   })
