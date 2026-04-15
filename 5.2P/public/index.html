@@ -12,26 +12,13 @@
 <body>
 
     <div class="container">
-        <h1>Welcome to the Book Server</h1>
-        <p>This page is being served using Express!</p>
+        <h1>Welcome to the Book Catalog</h1>
+        <p>Explore a curated collection of books across genres,
+             making it easy to discover, organize, and enjoy your next read.
+              Whether you're searching for classics or new favorites,
+               our catalog brings everything together in one place.</p>
+        <ul id="book-list">Loading...</ul>
     </div>
-    <script>
-    fetch('/api/books')
-      .then(res => res.json())
-      .then(response => {
-        const list = document.getElementById('book-list');
-        list.innerHTML = '';
-        response.data.forEach(book => {
-          const li = document.createElement('li');
-          li.innerHTML = `<div class="title">${book.title}</div>
-                          <div class="author">by ${book.author}</div>`;
-          list.appendChild(li);
-        });
-      })
-      .catch(err => {
-        document.getElementById('book-list').textContent = 'Failed to load books.';
-        console.error(err);
-      });
-  </script>
+    <script src="js/script.js"></script>
 </body>
 </html>

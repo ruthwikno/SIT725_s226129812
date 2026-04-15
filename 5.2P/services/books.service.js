@@ -50,7 +50,10 @@ summary: 'In Omnia, the god Om returns as a tortoise, and novice Brutha must con
   const getAllBooks = () => {
     return bookItems;
   };
-  
+  const getBookById = (id) => {
+    return bookItems.find(book => book.id === id);
+  };
   module.exports = {
-    getAllBooks
+    getAllBooks,
+    getBookById
   };

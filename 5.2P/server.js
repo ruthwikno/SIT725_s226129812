@@ -17,4 +17,5 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
+  console.log('books can be accessed at http://localhost:3000/api/books');
 });
