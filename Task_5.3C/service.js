@@ -1,6 +1,14 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
 const PORT = 3000;
+
+// Connect to MongoDB
+const MONGO_URI = 'mongodb://localhost:27017/booksdb';
+ 
+mongoose.connect(MONGO_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('MongoDB connection error:', err));
 //to access public folder for static files
 app.use(express.static('public'));
 
