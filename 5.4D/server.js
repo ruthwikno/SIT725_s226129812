@@ -9,8 +9,15 @@ const MONGO_URI = 'mongodb://localhost:27017/booksdb';
 mongoose.connect(MONGO_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
-//to access public folder for static files
+ 
+// Middleware to parse JSON bodies
+app.use(express.json()); 
 app.use(express.static('public'));
+
+// Integrity check endpoint
+app.get('/api/integrity-check42', (req, res) => {
+  res.status(204).send();
+});
 
 // Import route file
 const bookRoutes = require('./routes/books.routes');
@@ -27,3 +34,5 @@ app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
   console.log('books can be accessed at http://localhost:3000/api/books');
 });
+
+

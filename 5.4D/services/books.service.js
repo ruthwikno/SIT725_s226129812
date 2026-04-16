@@ -19,7 +19,7 @@ const getBookByCustomId = async (id) => {
   return await Book.findOne({ id });
 };
 
-// CREATE 
+// CREATE BOOK
 const createBook = async (data) => {
   // Whitelist — reject unknown fields
   const extraFields = Object.keys(data).filter(k => !ALLOWED_CREATE_FIELDS.includes(k));
@@ -37,7 +37,20 @@ const createBook = async (data) => {
       throw err;
     }
   }
-
+  // Type checks — reject wrong types before Mongoose can coerce them
+  const stringFields = ["id", "title", "author", "genre", "summary"];
+  for (const field of stringFields) {
+    if (typeof data[field] !== 'string') {
+      const err = new Error(`${field} must be a string`);
+      err.type = "VALIDATION";
+      throw err;
+    }
+  }
+  if (typeof data.year !== 'number') {
+    const err = new Error("year must be a number");
+    err.type = "VALIDATION";
+    throw err;
+  }
   // Duplicate id check
   const existing = await Book.findOne({ id: data.id });
   if (existing) {
@@ -68,7 +81,7 @@ const createBook = async (data) => {
   return await book.save();
 };
 
-// UPDATE
+// UPDATE BOOK
 const updateBook = async (customId, data) => {
   // Immutability — id cannot be changed
   if (data.id !== undefined) {
