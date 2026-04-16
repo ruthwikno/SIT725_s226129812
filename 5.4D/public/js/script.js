@@ -26,8 +26,8 @@ getAllBtn.addEventListener('click', async () => {
         <span class="book-price-tag">$${parseFloat(book.price).toFixed(2)}</span>
         <span class="list-arrow">→</span>
       `;
-      li.dataset.id = book._id;
-      li.addEventListener('click', () => showDetail(book._id));
+      li.dataset.id = book.id;
+      li.addEventListener('click', () => showDetail(book.id));
       bookList.appendChild(li);
     });
   } catch (err) {

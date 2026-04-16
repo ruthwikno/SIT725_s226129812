@@ -5,6 +5,7 @@ const MONGO_URI = 'mongodb://localhost:27017/booksdb';
 // five books as with AUD price added as Decimal128
 const books = [
   {
+    id : 'b1',
     title: 'The Three-Body Problem',
     author: 'Liu Cixin',
     year: 2008,
@@ -13,6 +14,7 @@ const books = [
     price: mongoose.Types.Decimal128.fromString('29.99')
   },
   {
+    id : 'b2',
     title: 'Jane Eyre',
     author: 'Charlotte Brontë',
     year: 1847,
@@ -21,6 +23,7 @@ const books = [
     price: mongoose.Types.Decimal128.fromString('22.00')
   },
   {
+    id : 'b3',
     title: 'Pride and Prejudice',
     author: 'Jane Austen',
     year: 1813,
@@ -29,6 +32,7 @@ const books = [
     price: mongoose.Types.Decimal128.fromString('22.00')
   },
   {
+    id : 'b4',
     title: 'The English Patient',
     author: 'Michael Ondaatje',
     year: 1992,
@@ -37,6 +41,7 @@ const books = [
     price: mongoose.Types.Decimal128.fromString('25.39')
   },
   {
+    id : 'b5',
     title: 'Small Gods',
     author: 'Terry Pratchett',
     year: 1992,

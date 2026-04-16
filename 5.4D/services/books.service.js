@@ -1,4 +1,4 @@
-const Book = require('../models/book_model');
+const Book = require('../models/book.model');
 
 // Documented fields for create and update operations. Used for validation and error handling in service layer.
 const ALLOWED_CREATE_FIELDS = ["id", "title", "author", "year", "genre", "summary", "price"];

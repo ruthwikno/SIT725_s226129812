@@ -1,4 +1,4 @@
-# SIT725 Assignment 5.3C: 
+# SIT725 Assignment 5.4D: 
 A Books Catalog built with Node.js and Express, following the MVC (Model-View-Controller) architecture using MongoDB as its database.
 
 ## Project Structure
