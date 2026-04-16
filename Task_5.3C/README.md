@@ -1,11 +1,13 @@
-afshifsekfse# SIT725 Assignment 5.2P: 
-A Books Catalog built with Node.js and Express, following the MVC (Model-View-Controller).
+# SIT725 Assignment 5.3C: 
+A Books Catalog built with Node.js and Express, following the MVC (Model-View-Controller) architecture using MongoDB as its database.
 
 ## Project Structure
-5.2P/
+5.3C/
 - `controllers/` 
   - `books_controllers.js` - Handles requests
   - `index.js` - file to export controllers
+- `models/` 
+  - `book.model.js` - Mongoose schema
 - `package.json` - project metadata and scripts.
 - `public/`:
   - `index.html` - main page for Book catalog.
@@ -14,25 +16,37 @@ A Books Catalog built with Node.js and Express, following the MVC (Model-View-Co
 -  `routes/`
   - `books_routes.js` - Defines API endpoints
 - `services/`
-  - `books_server.js` - In-memory data and logic
-- `server.js` - Express server setup .
+  - `books_service.js` - MongoDB queries
+- `seed.js` - Populates MongoDB with 5 sample books 
+- `server.js` - Express + mongoose server setup .
 
 ## Prereuisities
 - Node.js should be installed.
+- MongoDb should be locally running on 27017
 
 ## How to run
 
 1. clone or download the repository
-(use these commands in the terminal)
-2. navigate to 5.2P
-   - cd 5.2P
+
+# (use these commands in the terminal)#
+2. navigate to 5.3C
+   - cd 5.3C
 3. Install dependencies
    - npm install
-4. Start the server 
+4. Check if MongoDB is running locally
+   - mongod
+5. Seed the Database
+   - node.js
+   - Expected Output:
+         Connected to MongoDB
+         Cleared existing books
+         Seeded 5 books successfully
+         Disconnected from MongoDB
+6. Start the server 
    - npm start 
-5. the server will start at
+7. the server will start at
    - http://localhost:3000
-6. the API for books
+8. the API for books
    - http://localhost:3000/api/books   
 
 ## Technologies Used
@@ -40,3 +54,4 @@ A Books Catalog built with Node.js and Express, following the MVC (Model-View-Co
 - Node.js
 - Express.js
 - HTML, CSS, and JavaScript
+- MongoDB
