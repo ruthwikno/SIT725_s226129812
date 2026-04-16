@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Book Server</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom Style Sheet-->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="page-wrapper">
+ 
+        <header>
+            <h1>Book<br><em>Catalogue</em></h1>
+            <p class="header-sub">Developed by s226129812</p>
+            <div class="header-line"></div>
+        </header>
+ 
+        <main>
+            <div id="btnWrap" class="btn-wrap">
+                <button id="getAllBtn">Browse all books</button>
+                <p class="btn-hint">Click to load the collection from the server</p>
+            </div>
+ 
+            <ul id="book-list"></ul>
+ 
+            <div id="book-detail">
+                <button id="backBtn" class="back-btn">&#8592; Back to collection</button>
+                <div class="detail-card">
+                    <div class="detail-genre-badge" id="d-genre-badge"></div>
+                    <h2 id="d-title" class="detail-title"></h2>
+                    <p id="d-author" class="detail-author"></p>
+                    <div class="detail-divider"></div>
+                    <p id="d-summary" class="detail-summary"></p>
+                    <div class="detail-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Year</span>
+                            <span class="meta-value" id="d-year"></span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Genre</span>
+                            <span class="meta-value" id="d-genre"></span>
+                        </div>
+                        <div class="meta-item highlight">
+                            <span class="meta-label">Price (AUD)</span>
+                            <span class="meta-value price" id="d-price"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+            <p id="error"></p>
+        </main>
+ 
+        <footer>
+            <p>Book Catalogue</p>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
