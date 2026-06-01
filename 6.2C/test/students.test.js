@@ -6,7 +6,7 @@ const { calculateAverageGrade } = require("../helpers");
 chai.use(chaiHttp);
 const expect = chai.expect;
 
-// ─── REST API Tests: GET /api/students ───────────────────────────────────────
+// REST API Tests: GET /api/students 
 
 describe("GET /api/students", () => {
 
@@ -72,7 +72,7 @@ describe("GET /api/students", () => {
 
 });
 
-// ─── Calculation Function Tests: calculateAverageGrade() ─────────────────────
+// alculation Function Tests: calculateAverageGrade() 
 
 describe("calculateAverageGrade()", () => {
 
