@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Poll</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      width: 500px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    .question {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 24px;
+    }
+
+    .vote-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 12px 18px;
+      margin-bottom: 12px;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .vote-btn:hover { background: #1558b0; }
+
+    .results { margin-top: 30px; }
+
+    .results h2 {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    .result-item { margin-bottom: 14px; }
+
+    .result-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .bar-bg {
+      background: #e8edf2;
+      border-radius: 6px;
+      height: 14px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: #1a73e8;
+      border-radius: 6px;
+      transition: width 0.4s ease;
+    }
+
+    .total {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #888;
+      text-align: right;
+    }
+
+    .status {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #27ae60;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🗳️ Live Poll</h1>
+    <p class="subtitle">Results update in real-time for all connected users</p>
+
+    <p class="question" id="question">Loading...</p>
+
+    <div id="buttons"></div>
+
+    <div class="results">
+      <h2>Live Results</h2>
+      <div id="results"></div>
+      <p class="total" id="total">Total votes: 0</p>
+    </div>
+
+    <p class="status" id="status"></p>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    // When connected to the server
+    socket.on('connect', () => {
+      document.getElementById('status').textContent = '🟢 Connected to live poll server';
+    });
+
+    // Receive poll data (on connect and after each vote)
+    socket.on('pollUpdate', (poll) => {
+      document.getElementById('question').textContent = poll.question;
+
+      const options = Object.keys(poll.options);
+      const votes = Object.values(poll.options);
+      const totalVotes = votes.reduce((a, b) => a + b, 0);
+
+      // Render vote buttons
+      const buttonsDiv = document.getElementById('buttons');
+      buttonsDiv.innerHTML = '';
+      options.forEach(option => {
+        const btn = document.createElement('button');
+        btn.className = 'vote-btn';
+        btn.innerHTML = `<span>${option}</span><span>Vote</span>`;
+        btn.onclick = () => {
+          socket.emit('vote', option);
+          document.getElementById('status').textContent = `✅ You voted for ${option}!`;
+        };
+        buttonsDiv.appendChild(btn);
+      });
+
+      // Render results bars
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '';
+      options.forEach(option => {
+        const count = poll.options[option];
+        const percent = totalVotes > 0 ? Math.round((count / totalVotes) * 100) : 0;
+
+        resultsDiv.innerHTML += `
+          <div class="result-item">
+            <div class="result-label">
+              <span>${option}</span>
+              <span>${count} vote${count !== 1 ? 's' : ''} (${percent}%)</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill" style="width: ${percent}%"></div>
+            </div>
+          </div>
+        `;
+      });
+
+      document.getElementById('total').textContent = `Total votes: ${totalVotes}`;
+    });
+
+    socket.on('disconnect', () => {
+      document.getElementById('status').textContent = '🔴 Disconnected from server';
+    });
+  </script>
+</body>
+</html>
